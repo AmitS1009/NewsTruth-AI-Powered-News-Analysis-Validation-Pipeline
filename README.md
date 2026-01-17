@@ -15,8 +15,9 @@ In the age of AI hallucinations, a single model isn't enough. **NewsTruth** buil
 This **Agentic Workflow** ensures higher reliability than standard "wrapper" scripts.
 
 ## 🏗️ Architecture
+## 🏗️ Architecture
 ```mermaid
-graph LR
+graph TD
     A[NewsAPI] -->|Raw Articles| B(NewsFetcher)
     B -->|Cleaned Text| C{LLM #1: Analyst}
     C -->|Gist & Sentiment| D{LLM #2: Critic}
@@ -30,8 +31,12 @@ graph LR
     D
     end
 
-    style C fill:#fff3e0,stroke:#f57c00
-    style D fill:#f3e5f5,stroke:#8e24aa
+    %% High contrast styling
+    style A fill:#2d3436,stroke:#fff,stroke-width:2px,color:#fff
+    style B fill:#2d3436,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#d35400,stroke:#e67e22,stroke-width:2px,color:#fff
+    style D fill:#8e44ad,stroke:#9b59b6,stroke-width:2px,color:#fff
+    style E fill:#27ae60,stroke:#2ecc71,stroke-width:2px,color:#fff
 ```
 
 ## ✨ Key Features
@@ -44,8 +49,8 @@ graph LR
 
 ### 1. Clone the Repo
 ```bash
-git clone https://github.com/yourusername/news-analyzer.git
-cd news-analyzer
+git clone https://github.com/AmitS1009/NewsTruth-AI-Powered-News-Analysis-Validation-Pipeline.git
+cd NewsTruth-AI-Powered-News-Analysis-Validation-Pipeline
 ```
 
 ### 2. Install Dependencies
@@ -75,13 +80,17 @@ $env:PYTHONPATH="news-analyzer"; pytest news-analyzer/tests/
 
 ## 📂 Project Structure
 ```text
-news-analyzer/
-├── main.py              # Orchestrator: Manages the workflow
-├── news_fetcher.py      # Connects to NewsAPI with rate-limit handling
-├── llm_analyzer.py      # The Analyst: Google Gemini integration
-├── llm_validator.py     # The Critic: OpenRouter integration
-├── output/              # Generated reports and data
-└── tests/               # Unit tests ensuring stability
+.
+├── news-analyzer/           # Core source code
+│   ├── tests/               # Unit tests
+│   ├── llm_analyzer.py      # Gemini integration
+│   ├── llm_validator.py     # OpenRouter/Mistral integration
+│   ├── main.py              # Orchestrator script
+│   ├── news_fetcher.py      # NewsAPI client
+│   └── requirements.txt     # Python dependencies
+├── output/                  # Generated reports (JSON/Markdown)
+├── DEVELOPMENT_PROCESS.md   # Engineering log & Evaluator guide
+└── README.md                # Project documentation
 ```
 
 ## 📝 Sample Output
@@ -95,4 +104,3 @@ news-analyzer/
     - **Reasoning:** The text uses words like "historic gain" and "breakthrough".
 
 ---
-*Built with ❤️ by [Your Name]*
