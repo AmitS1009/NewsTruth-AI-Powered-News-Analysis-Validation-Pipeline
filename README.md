@@ -15,7 +15,6 @@ In the age of AI hallucinations, a single model isn't enough. **NewsTruth** buil
 This **Agentic Workflow** ensures higher reliability than standard "wrapper" scripts.
 
 ## 🏗️ Architecture
-## 🏗️ Architecture
 ```mermaid
 graph TD
     A[NewsAPI] -->|Raw Articles| B(NewsFetcher)
